@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Check } from 'lucide-react';
 import { useSports } from '../hooks/UseSports';
 import { fetchSlots, createBooking, verifyPayment } from '../services/api';
@@ -11,6 +12,7 @@ import { isLoggedIn } from '../services/is_logged_in';
 import PhoneOTPComponent from "../components/Register";
 import toast from "react-hot-toast";
 
+
 const loadRazorpayScript = () => {
   return new Promise((resolve, reject) => {
     const existingScript = document.querySelector('script[src="https://checkout.razorpay.com/v1/checkout.js"]');
@@ -18,7 +20,7 @@ const loadRazorpayScript = () => {
       resolve(true);
       return;
     }
-
+const navigate = useNavigate();
     const script = document.createElement('script');
     script.src = 'https://checkout.razorpay.com/v1/checkout.js';
     script.onload = () => resolve(true);
@@ -209,7 +211,7 @@ export default function SportsBooking() {
             is_partial_payment: partial,
           });
           toast.success("Payment verified!");
-          window.location.href = "/My-bookings";
+          setTimeout(() => navigate("/My-bookings"), 200);
         },
       };
 
@@ -417,17 +419,23 @@ export default function SportsBooking() {
               </button>
             )}
 
-            {overlay && (
-              <PhoneOTPComponent
-                onSuccess={() => {
-                  setLogin(true);
-                  setOverlay(false);
-                }}
-              />
-            )}
+            
           </div>
         </div>
       </div>
+         {overlay && (
+  <div
+    className="fixed inset-0 z-[70] flex items-center justify-center"
+    style={{ backdropFilter: 'blur(2px)' }}
+  >
+    <PhoneOTPComponent
+      onSuccess={() => {
+        setLogin(true);
+        setOverlay(false);
+      }}
+    />
+  </div>
+)}
     </div>
   );
 }
