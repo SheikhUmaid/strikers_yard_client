@@ -417,17 +417,23 @@ export default function SportsBooking() {
               </button>
             )}
 
-            {overlay && (
-              <PhoneOTPComponent
-                onSuccess={() => {
-                  setLogin(true);
-                  setOverlay(false);
-                }}
-              />
-            )}
+        
           </div>
         </div>
       </div>
+      {overlay && (
+  <div
+    className="fixed inset-0 z-[99]  flex items-center justify-center"
+    style={{ backdropFilter: 'blur(2px)' }}
+  >
+    <PhoneOTPComponent
+      onSuccess={() => {
+        setLogin(true);
+        setOverlay(false);
+      }}
+    />
+  </div>
+)}
     </div>
   );
 }
