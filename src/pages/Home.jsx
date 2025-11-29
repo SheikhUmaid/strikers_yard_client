@@ -36,21 +36,21 @@ export default function Home() {
       </div>
       {/* Main glass hero and call-to-action, center both axes */}
       <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center z-20">
-          <h1 className="text-white text-5xl font-black mb-6 text-center drop-shadow-xl">
-            BRING YOUR GAME ON!
-          </h1>
-          <div className="text-white text-lg mb-6 font-medium text-center" style={{ textShadow: "0 2px 8px rgba(50,205,50,0.13)" }}>
-            Book football turfs easily & instantly. <br />
-            Discover local grounds and reserve your spot.
-          </div>
-          <button
-            className="mt-2 bg-green-400 hover:bg-green-300 text-black font-bold px-8 py-4 rounded-full shadow-xl transition transform hover:-translate-y-1"
-            onClick={() => navigate('/booking')}
-          >
-            <AiOutlineArrowRight className="text-2xl inline-block mr-2 align-middle" />
-            Book Now
-          </button>
-        
+        <h1 className="text-white text-5xl font-black mb-6 text-center drop-shadow-xl">
+          BRING YOUR GAME ON!
+        </h1>
+        <div className="text-white text-lg mb-6 font-medium text-center" style={{ textShadow: "0 2px 8px rgba(50,205,50,0.13)" }}>
+          Book football turfs easily & instantly. <br />
+          Discover local grounds and reserve your spot.
+        </div>
+        <button
+          className="mt-2 bg-green-400 hover:bg-green-300 text-black font-bold px-8 py-4 rounded-full shadow-xl transition transform hover:-translate-y-1"
+          onClick={() => navigate('/booking')}
+        >
+          <AiOutlineArrowRight className="text-2xl inline-block mr-2 align-middle" />
+          Book Now
+        </button>
+
       </div>
       {/* Carousel dots with glass effect */}
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-3 z-30">
@@ -63,42 +63,39 @@ export default function Home() {
           />
         ))}
       </div>
-{/* Glass Footer Overlay */}
-<div className="absolute bottom-0 left-0 w-full h-20 
+      {/* Glass Footer Overlay */}
+      <div className="absolute bottom-0 left-0 w-full h-20 
                 backdrop-blur-xl bg-black/35 
                 border-t border-white/20 
                 flex items-center justify-center z-40">
 
-  <div className="flex items-center gap-14 text-white">
+        <div className="flex items-center gap-14 text-white">
 
-    {/* Powered by */}
-    <div className="flex items-center gap-3">
-      <img src="/gratify-logo.png" className="h-7 opacity-90" alt="Gratify Labs Logo" />
-      <span className="opacity-90 text-base">
-        Powered by <span className="text-green-400 font-semibold">Gratify Labs</span>
-      </span>
-    </div>
+          {/* Powered by */}
+          <div className="flex items-center gap-3">
+            <span className="opacity-90 text-base">
+              Crafted by <a href="https://www.gratifylabs.in" target="_blank" rel="noopener noreferrer"><span className="text-green-400 font-semibold">Gratify Labs</span></a>
+            </span>
+          </div>
 
-    {/* Social Icons */}
-    <div className="flex gap-6 text-2xl">
-      <a href="https://facebook.com" target="_blank" className="hover:text-green-400 transition">
-        <Facebook size={26} />
-      </a>
+          {/* Social Icons */}
+          <div className="flex gap-6 text-2xl">
 
-      <a href="https://instagram.com" target="_blank" className="hover:text-green-400 transition">
-        <Instagram size={26} />
-      </a>
 
-      <a href="https://wa.me/919000000000" target="_blank" className="hover:text-green-400 transition">
-        <MessageCircle size={26} />
-      </a>
-    </div>
+            <a href="https://www.instagram.com/strikers_yard/" target="_blank" className="hover:text-green-400 transition">
+              <Instagram size={26} />
+            </a>
 
-  </div>
-</div>
+            <a href="https://wa.me/917889479750" target="_blank" className="hover:text-green-400 transition">
+              <MessageCircle size={26} />
+            </a>
+          </div>
+
+        </div>
+      </div>
 
 
     </div>
-    
+
   );
 }

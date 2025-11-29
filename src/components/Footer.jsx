@@ -7,16 +7,10 @@ export default function Footer() {
 
         {/* Logo + Powered by */}
         <div className="flex flex-col items-center gap-2">
-          <img
-            src="/gratifylabs.png"
-            alt="Gratify Labs Logo"
-            className="h-12 w-auto opacity-90 drop-shadow-lg"
-          />
           <p className="text-sm text-gray-300">
-            Powered by <span className="text-green-400 font-semibold">Gratify Labs</span>
+            Built by <span className="text-green-400 font-semibold">Gratify Labs</span>
           </p>
         </div>
-
         {/* Social Icons */}
         <div className="flex gap-6 mt-2">
           <a
