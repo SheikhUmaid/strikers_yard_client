@@ -16,7 +16,8 @@ export default function PhoneOTPComponent({ onSuccess }) {
   // SEND OTP
   const handleSendOTP = async () => {
     if (!phoneNumber || phoneNumber.length < 10) {
-      setMessage("Please enter a valid phone number");
+      // setMessage("Please enter a valid phone number");
+      setMessage("Please enter a valid email");
       return;
     }
 
@@ -114,13 +115,13 @@ export default function PhoneOTPComponent({ onSuccess }) {
       >
         {/* TITLE */}
         <h2 className="text-3xl font-bold text-white text-center mb-2">
-          {isNewUser ? "Complete Your Profile" : "Phone Verification"}
+          {isNewUser ? "Complete Your Profile" : "Email Verification"}
         </h2>
 
         <p className="text-emerald-100/80 text-center mb-8">
           {isNewUser
             ? "You're almost done! Add your name and email"
-            : "Enter your phone number to receive an OTP"}
+            : "Enter your email to receive an OTP"}
         </p>
 
         {/* ------------------------------
@@ -132,20 +133,21 @@ export default function PhoneOTPComponent({ onSuccess }) {
             {/* PHONE INPUT */}
             <div>
               <label className="text-sm font-medium text-emerald-200 mb-2 block">
-                Phone Number
+                Email Address
+                {/* Phone Number */}
               </label>
 
               {/* Responsive input + button */}
               <div className="flex flex-col sm:flex-row gap-3">
                 <input
-                  type="tel"
+                  type="email"
                   value={phoneNumber}
                   onChange={(e) =>
-                    setPhoneNumber(e.target.value.replace(/\D/g, ""))
+                    setPhoneNumber(e.target.value.replace("", ""))
                   }
                   disabled={showOTP}
-                  maxLength={10}
-                  placeholder="Enter phone number"
+                  maxLength={50}
+                  placeholder="Enter your Email"
                   className="
                     flex-1 px-4 py-3 rounded-xl text-white 
                     bg-white/5 border border-white/10 
