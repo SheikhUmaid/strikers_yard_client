@@ -247,7 +247,7 @@ export default function SportsBooking() {
             is_partial_payment: partial,
           });
           toast.success("Payment verified!");
-          setTimeout(() => navigate("/My-bookings"), 200);
+          setTimeout(() => navigate("/my-bookings"), 200);
         },
       };
 
