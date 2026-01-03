@@ -8,7 +8,7 @@ export default function Footer() {
         {/* Logo + Powered by */}
         <div className="flex flex-col items-center gap-2">
           <p className="text-sm text-gray-300">
-            Built by <span className="text-green-400 font-semibold">Gratify Labs</span>
+            Built by <span className="text-green-400 font-semibold">Zinth Labs</span> Pvt Ltd
           </p>
         </div>
         {/* Social Icons */}
