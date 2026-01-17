@@ -249,9 +249,25 @@ export default function SportsBooking() {
           toast.success("Payment verified!");
           setTimeout(() => navigate("/my-bookings"), 200);
         },
+        modal: {
+          ondismiss: () => {
+            toast.error("Payment cancelled. If the transaction failed, the selected slot will be released in approximately 12 minutes.", {
+              duration: 6000,
+            });
+            setIsProcessingPayment(false);
+          },
+        },
       };
 
       const rzp = new window.Razorpay(options);
+
+      rzp.on('payment.failed', function (response) {
+        toast.error("Payment failed. If the transaction failed, the selected slot will be released in approximately 12 minutes.", {
+          duration: 6000,
+        });
+        setIsProcessingPayment(false);
+      });
+
       rzp.open();
     } catch (error) {
       toast.error(error.message);
@@ -366,10 +382,9 @@ export default function SportsBooking() {
                         }}
                         className={`
                           relative p-4 rounded-xl text-sm font-semibold transition-all duration-300
-                          ${
-                            slot.is_taken
-                              ? 'bg-white/5 text-emerald-200/40 cursor-not-allowed'
-                              : isSelected
+                          ${slot.is_taken
+                            ? 'bg-white/5 text-emerald-200/40 cursor-not-allowed'
+                            : isSelected
                               ? 'bg-gradient-to-br from-emerald-400 to-lime-300 text-emerald-900 shadow-lg scale-110'
                               : 'bg-white/5 text-emerald-50 hover:bg-white/15 hover:scale-105 hover:shadow-md'
                           }
